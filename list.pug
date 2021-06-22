@@ -1,0 +1,59 @@
+extends ../layout
+
+block content
+    .row
+        .col-sm-8
+            h1=title
+        .col-sm-4
+            a(href="/api/final/add", class="btn btn-success float-right") Add New Product
+    table.table
+        thead
+            tr
+                th Name
+                th Description
+                th Price
+                th Rating
+                th Actions
+        tbody
+            each product in products
+                tr
+                    td=product.name
+                    td=product.description
+                    td=product.price
+                    td
+                        <form class="rating">
+                            <label>
+                            <input type="radio" name="stars" value="1" />
+                            <span class="icon">★</span>
+                            </label>
+                            <label>
+                            <input type="radio" name="stars" value="2" />
+                            <span class="icon">★</span>
+                            <span class="icon">★</span>
+                            </label>
+                            <label>
+                            <input type="radio" name="stars" value="3" />
+                            <span class="icon">★</span>
+                            <span class="icon">★</span>
+                            <span class="icon">★</span>   
+                            </label>
+                            <label>
+                            <input type="radio" name="stars" value="4" />
+                            <span class="icon">★</span>
+                            <span class="icon">★</span>
+                            <span class="icon">★</span>
+                            <span class="icon">★</span>
+                            </label>
+                            <label>
+                            <input type="radio" name="stars" value="5" />
+                            <span class="icon">★</span>
+                            <span class="icon">★</span>
+                            <span class="icon">★</span>
+                            <span class="icon">★</span>
+                            <span class="icon">★</span>
+                            </label>
+                        </form>
+                    td
+                        a(href="/api/final/delete/"+product._id, class="btn btn-danger") Delete
+                        a(href="/api/final/edit/"+product._id, class="btn btn-warning") Edit
+                        a(href="/api/final/cart/"+product._id, class="btn btn-info") Add To Cart

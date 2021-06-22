@@ -1,0 +1,19 @@
+extends ../layout
+
+block content
+    h1 Edit Product
+    form(action="/api/final/edit/"+product._id,method="post")
+        .form-group
+            label(for="name") Product Name
+            input#name(type="text", class="form-control", name="name", value=product.name)
+        .form-group
+            label(for="description") Product Description
+            input#price(type="text", class="form-control", name="description", value=product.description)
+        .form-group
+            label(for="price") Product Price
+            input#price(type="text", class="form-control", name="price", value=product.price)
+        .form-group
+            label(for="rating") Rating
+            input#price(type="number", class="form-control", name="rating", value=product.rating)
+        input(type="submit", class="btn btn-info")
+    

@@ -1,0 +1,19 @@
+extends ../layout
+
+block content
+    h1 Add New Product
+    form(action="/api/final/add",method="post")
+        .form-group
+            label(for="name") Product Name
+            input#name(type="text", class="form-control", name="name")
+        .form-group
+            label(for="description") Product Description
+            input#price(type="text", class="form-control", name="description")
+        .form-group
+            label(for="price") Product Price
+            input#price(type="text", class="form-control", name="price")
+        .form-group
+            label(for="rating") Rating
+            input#price(type="text", class="form-control", name="rating", placeholder: "1-5")
+        input(type="submit", class="btn btn-info")
+    

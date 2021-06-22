@@ -1,0 +1,59 @@
+extends layout
+
+block content
+  h1 My shopping Cart
+  - var total=0;
+    table.table
+      thead
+        th Name
+        th Description
+        th Price
+        th Rating
+        th Actions
+      tbody
+        each item in cart
+          - total += Number(item.price)
+          tr
+            td=item.name
+            th=item.description
+            td=item.price
+            td
+              <form class="rating">
+                <label>
+                  <input type="radio" name="stars" value="1" />
+                  <span class="icon">★</span>
+                </label>
+                <label>
+                  <input type="radio" name="stars" value="2" />
+                  <span class="icon">★</span>
+                  <span class="icon">★</span>
+                </label>
+                <label>
+                  <input type="radio" name="stars" value="3" />
+                  <span class="icon">★</span>
+                  <span class="icon">★</span>
+                  <span class="icon">★</span>   
+                </label>
+                <label>
+                  <input type="radio" name="stars" value="4" />
+                  <span class="icon">★</span>
+                  <span class="icon">★</span>
+                  <span class="icon">★</span>
+                  <span class="icon">★</span>
+                </label>
+                <label>
+                  <input type="radio" name="stars" value="5" />
+                  <span class="icon">★</span>
+                  <span class="icon">★</span>
+                  <span class="icon">★</span>
+                  <span class="icon">★</span>
+                  <span class="icon">★</span>
+                </label>
+              </form>
+            td
+              a(href="/api/final/cart/remove/"+item._id, class="btn btn-danger") Remove Item
+      tfoot
+        tr
+          td Total
+          td
+          td=total
